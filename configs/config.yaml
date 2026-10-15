@@ -1,0 +1,43 @@
+seed: 42
+device: cuda
+
+data:
+  data_path: ~/dataset/air_2018.npy
+  loc_path: ~/dataset/air_2018_locations.csv
+  drop_stations: [671, 675]
+  label: pm25
+  drop_limit: 0.5
+  split: transductive
+  station_train_ratio: 0.6
+  station_val_ratio: 0.2
+  train_ratio: 0.6
+  val_ratio: 0.2
+  window: 6
+  skip_step: 4
+  k_top: 6
+  mask_ratio: 0.25
+  batch_size: 16
+  num_workers: 4
+  prefetch_factor: 2
+
+model:
+  hid_dim: 64
+  hid_layers: 2
+  dim_feed: 64
+  nhead: 1
+  ring_layers: 3
+  weight_layers: 3
+  max_step: 4
+  step_embed_dim: 6
+  wth_embed_dim: 16
+  time_embed_dim: 8
+  dym_graph: true
+
+train:
+  epochs: 200
+  lr: 0.001
+  w_decay: 0.00001
+  acc_steps: 1
+  patience: 20
+  lr_step: 40
+  lr_gamma: 0.5

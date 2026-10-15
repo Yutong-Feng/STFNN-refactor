@@ -1,0 +1,5 @@
+torch>=2.4
+numpy>=2.0
+pandas>=2.0
+tqdm>=4.60
+hydra-core>=1.3
